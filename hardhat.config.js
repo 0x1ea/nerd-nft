@@ -19,7 +19,7 @@ module.exports = {
     rinkeby: {
       url: RINKEBY_RPC_URL,
       accounts: [PRIVATE_KEY],
-      chainId: 42,
+      chainId: 4,
     },
     localhost: {
       url: "http://localhost:8545",

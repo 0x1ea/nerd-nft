@@ -7,6 +7,8 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deployer } = await getNamedAccounts()
   const chainId = network.config.chainId
 
+  let args = []
+
   log("----------------------------------------------------")
   log("Deploying Nerd and waiting for confirmations...")
   const nerd = await deploy("Nerd", {
@@ -21,7 +23,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     !developmentChains.includes(network.name) &&
     process.env.ETHERSCAN_API_KEY
   ) {
-    await verify(nerd.address, [ethUsdPriceFeedAddress])
+    await verify(nerd.address, args)
   }
 }
 
